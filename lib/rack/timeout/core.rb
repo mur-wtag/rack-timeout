@@ -141,7 +141,7 @@ module Rack
           end
         end
 
-        app_thread.raise(RequestTimeoutException.new(env), message)
+        app_thread.raise(Api::TimeoutError.new(env), message)
       end
 
       response = timeout.timeout(info.timeout) do           # perform request with timeout
